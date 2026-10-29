@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine 💘</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+        text-align: center;
+        background: white;
+        padding: 40px 30px;
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        position: relative;
+        width: 640px;
+        height: 300px;
+        overflow: hidden;
+    }
+
+    h1 {
+        color: #e63946;
+        margin-bottom: 40px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    button {
+
+    position: relative;
+        padding: 12px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+
+   #yesBtn {
+    background-color: #e63946;
+    color: white;
+    position: absolute;
+    left: 150px;
+    bottom: 60px;
+     z-index: 10;
+}
+
+#noBtn {
+    background-color: #fff;
+    color: #333;
+    position: absolute;
+    right: 150px;
+    bottom: 60px;
+    border: 1px solid #000;
+     z-index: 5;
+}
+    #noSlot {
+    width: fit-content;
+    height: fit-content;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="box">
+    <h1>Ashee,<br>Will you be my Valentine? 💕</h1>
+
+    <div class="buttons">
+    <button id="yesBtn">YES 💖</button>
+    <button id="noBtn">NO 😜</button>
+</div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const box = document.getElementById("box");
+
+    noBtn.addEventListener("mouseover", () => {
+        const boxRect = box.getBoundingClientRect();
+        const btnRect = noBtn.getBoundingClientRect();
+
+        const padding = 20;
+
+        const maxX = boxRect.width - btnRect.width - padding;
+        const maxY = boxRect.height - btnRect.height - padding;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+        noBtn.style.right = "auto";
+        noBtn.style.bottom = "auto";
+    });
+</script>
+<script>
+    document.getElementById("yesBtn").addEventListener("click", () => {
+        document.body.innerHTML = `
+            <div style="
+                height:100vh;
+                width:100%;
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+                background:linear-gradient(135deg,#ff758c,#ff7eb3);
+                font-family:'Segoe UI',sans-serif;
+                text-align:center;
+            ">
+                <h1 style="font-size:48px;color:white;">YAY!!! 🎉</h1>
+                <h2 style="color:white;">Best decision ever 💖</h2>
+                <p style="color:white;">This just made my day ✨</p>
+                <img
+                  src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif"
+                  style="width:220px;border-radius:15px;"
+                >
+            </div>
+        `;
+    });
+</script>
+
+
+
+</body>
+</html>
+
